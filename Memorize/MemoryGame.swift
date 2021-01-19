@@ -10,8 +10,19 @@ import Foundation
 struct MemoryGame<CardContent> {
     var cards: Array<Card>
     
-    func choose(card: Card) {
+    mutating func choose(card: Card) {
         print("card chosen: \(card)")
+        let chosenIndex: Int = index(of: card)
+        cards[chosenIndex].isFaceUp.toggle()
+    }
+    
+    func index(of card: Card) -> Int {
+        for index in 0..<cards.count {
+            if cards[index].id == card.id {
+                return index
+            }
+        }
+        return 0 // TODO: bodus!
     }
     
     init(numberOfPairOfCards: Int, cardContentFactory: (Int) -> CardContent) {
@@ -24,7 +35,7 @@ struct MemoryGame<CardContent> {
     }
 
     struct Card: Identifiable {
-        var isFaceUp: Bool = false
+        var isFaceUp: Bool = true
         var isMatched: Bool = false
         var content: CardContent // 숫자, 문자, 이미지 어떤것이든 들어가기 위해 위에서 generic인것을 볼 수 있음
         var id: Int
