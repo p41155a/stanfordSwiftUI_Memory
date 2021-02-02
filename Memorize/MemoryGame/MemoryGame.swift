@@ -9,10 +9,10 @@ import Foundation
 
 struct MemoryGame<CardContent> where CardContent: Equatable {
     // Equatable : cards[chosenIndex].content == cards[potentialMatchIndex].content 에서 비교해주기 위함(image와 같은 것들은 비교 불가 할 수도 있음)
-    var cards: Array<Card>
+    private(set) var cards: Array<Card>
     
     // 하나의 카드만 뒤집혔을 때 그 카드의 index
-    var indexOfTheOneAndOnlyFaceUpCard: Int? {
+    private var indexOfTheOneAndOnlyFaceUpCard: Int? {
         get { cards.indices.filter { cards[$0].isFaceUp }.only } // 뒤집혀있는 것이 하나일 때만 값이 있음으로 표시
         set { // 이번에 들어온 index 빼고 다 뒤집음
             for index in cards.indices {
@@ -47,6 +47,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         cards.shuffle()
     }
 
+    // 위에서 card 배열이 이미 private 임으로 구조체를 각 변수가 private 이지 않아도 된다
     struct Card: Identifiable {
         var isFaceUp: Bool = false
         var isMatched: Bool = false
