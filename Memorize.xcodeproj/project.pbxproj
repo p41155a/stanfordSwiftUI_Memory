@@ -98,11 +98,11 @@
 				FF2BE71C25B6C23900D267C8 /* GridLayout.swift */,
 				FF2BE71925B6BF8D00D267C8 /* Grid.swift */,
 				FF5B9CCE25C7CF5100F7ECA8 /* Pie.swift */,
+				FF5B9CD325C7D2BD00F7ECA8 /* Cardify.swift */,
 				FFA3AA5025A2D00900EAB34B /* Assets.xcassets */,
 				FFA3AA5525A2D00900EAB34B /* LaunchScreen.storyboard */,
 				FFA3AA5825A2D00900EAB34B /* Info.plist */,
 				FFA3AA5225A2D00900EAB34B /* Preview Content */,
-				FF5B9CD325C7D2BD00F7ECA8 /* Cardify.swift */,
 			);
 			path = Memorize;
 			sourceTree = "<group>";
